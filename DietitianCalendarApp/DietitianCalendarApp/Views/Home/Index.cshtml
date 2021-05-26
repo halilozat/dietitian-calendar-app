@@ -2,7 +2,85 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+@section Styles {
+    <link href='/lib/fullcalendar/core/main.css' rel='stylesheet' />
+    <link href='/lib/fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <link href="~/lib/fullcalendar/timegrid/main.css" rel="stylesheet" />
+}
+
+
+<div id="calendar">
+
 </div>
+
+
+
+
+@section Scripts {
+    <script src='~/lib/fullcalendar/core/main.js'></script>
+    <script src="/lib/fullcalendar/daygrid/main.js"></script>
+    <script src="~/lib/fullcalendar/timegrid/main.js"></script>
+    <script src="~/lib/fullcalendar/core/locales/tr.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['dayGrid', 'timeGrid'],
+                locale: 'tr',
+                header: {
+                    left: 'prev, next, today, getDate',
+                    center: 'title',
+                    right: 'dayGridMonth, timeGridWeek, timeGridDay, timeGridForFourDay'
+                },
+                defaultView: 'dayGridMonth',
+                weekends: true,
+                allDaySlot: false,
+                //firstDay : 0, // Pazardan başlayacak şekilde 0, 1, 2 ..
+                titleFormat: {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                },
+                titleRangeSeparator: ' / ',
+                columnHeaderFormat: {
+                    //month: 'numeric',
+                    weekday: 'long'
+                    //day : 'numeric'
+                },
+                views: {
+                    timeGridForFourDay: {
+                        type: 'timeGrid',
+                        //dayCount: 4,
+                        duration: { days: 4 },
+                        buttonText: '4 Gün'
+                    }
+                },
+                customButtons: {
+                    getDate: {
+                        text: 'date',
+                        click: function () {
+                            var date = new Date();
+                            alert(date);
+                        }
+                    }
+                }
+                //buttonText: {
+                //    today: 'Bugün gün',
+                //    month: 'Ay ve ay',
+                //    week: 'Haftalr haf',
+                //    day : 'Gün güb'
+                //}
+                ,
+                footer: {
+                    left: 'getDate',
+                    center: 'title',
+                    right: 'timeGridForFourDay'
+                }
+            });
+
+            calendar.render();
+        });
+    </script>
+}
