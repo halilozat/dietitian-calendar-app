@@ -13,17 +13,33 @@
 }
 
 
+<div class="row">
 
-<div id="calendar">
+    <div class="col-md-2">
+        <div id="otherEvents">
+            <p><strong>Sürüklenebilir Etkinlikler</strong></p>
+            <div class="fc-event" id="isValid">1. Etkinlik</div><br />
+            <div class="fc-event">2. Etkinlik</div><br />
+        </div>
+    </div>
+
+    <div class="col-md-10">
+
+        <div id="calendar">
+
+        </div>
+
+    </div>
 
 </div>
 
 
 
 
+
 @section Scripts {
     <script src='~/lib/fullcalendar/core/main.js'></script>
-    <script src="/lib/fullcalendar/daygrid/main.js"></script>
+    <script src="~/lib/fullcalendar/daygrid/main.js"></script>
     <script src="~/lib/fullcalendar/timegrid/main.js"></script>
     <script src="~/lib/fullcalendar/list/main.js"></script>
     <script src="~/lib/fullcalendar/interaction/main.js"></script>
@@ -33,6 +49,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
+            var draggableEl = document.getElementById('otherEvents');
+
+            var Draggable = FullCalendarInteraction.Draggable;
+            new Draggable(draggableEl, {
+                itemSelector: '.fc-event',
+                eventData: function (eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        duration: '01:30'
+                    };
+                }
+
+            });
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list', 'bootstrap'],
@@ -122,6 +151,9 @@
                 //displayEventTime: true,
                 //displayEventEnd : false,
                 // eventOrder : 'title', //start, -duration, allDay, title, [], function
+                validRange: {
+                    start: '2021-05-01'
+                },
                 timeZone: 'UTC',
                 events: [
                     {
@@ -141,39 +173,15 @@
                 //    console.log(info.event.title); // event, el, isMirror
                 //},
                 selectable: true,
+                droppable: true,
                 select: function (selectionInfo) {
                     console.log(selectionInfo);
                 },
                 eventClick: function (info) {
                     alert(info.event.title);
                 },
-                //eventMouseEnter: function (onMouse) {
-                //    alert(onMouse.event.start);
-                //},
-                //eventMouseLeave: function (onLeave) {
-                //    alert(onLeave.event.id);
-                //}
                 editable: true,
-                //eventStartEditable: false,
-                //eventDurationEditable : true
-                //eventDragMinDistance: 100,
-                //dragRevertDuration: 3000,
-                //dragScroll: true,
                 snapDuration: '00:15:00',
-                //eventOverlap: function (stillEvent, movingEvent) {
-                //    //süzgeç
-                //    return stillEvent.allDay && movingEvent.allDay;
-                //},
-                //eventConstraint: {
-                //    startTime: '10:00',
-                //    endTime: '19:00',
-                //    daysOfWeek : [1,2,3]
-                //},
-                //eventAllow: function (dropInfoEvent, draggedEvent) {
-                //    //kontrol
-                //    console.log(dropInfoEvent.start);
-                //    return false;
-                //}
                 eventDragStart: function (info) {
                     console.log('başladı.');
                 },
@@ -194,10 +202,17 @@
                     console.log('Resize edildi.');
                     //
                     //eventResizeInfo.revert();
-                }
-
-
-
+                },
+                drop: function (dropInfo) {
+                    console.log('Drop Edildi.'); //allDay, date, datestr, draggedEl
+                },
+                eventReceive: function (info) {
+                    console.log('Receive Edildi.');
+                },
+                eventLeave: function (info) {
+                    console.log('Leave Edildi.'); //Takvimler arasında olaylar sürüklendiğinde çalışır.
+                },
+                dropAccept: '#isValid'
 
             });
 
@@ -208,9 +223,7 @@
             var id = 'x';
             var event = calendar.getEventById(id);
             console.log(event.title);
-
-            //calendar.renderEvents();
-
+            
         });
     </script>
 }
