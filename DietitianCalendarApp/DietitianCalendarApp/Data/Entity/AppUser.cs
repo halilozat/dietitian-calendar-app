@@ -12,6 +12,8 @@ namespace DietitianCalendarApp.Data.Entity
         public bool IsDietitian { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public List<Appointment> Appoinments { get; set; }
+        public string TC { get; set; }
+        public string Color { get; set; }
+        public List<Appointment> Appointments { get; set; }
     }
 }

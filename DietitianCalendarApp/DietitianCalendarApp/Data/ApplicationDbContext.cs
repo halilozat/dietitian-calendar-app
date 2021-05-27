@@ -14,7 +14,7 @@ namespace DietitianCalendarApp.Data
         {
         }
 
-        public DbSet<Appointment> Appoinments { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
 
     }
 }
