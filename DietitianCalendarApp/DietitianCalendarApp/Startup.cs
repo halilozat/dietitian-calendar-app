@@ -39,6 +39,7 @@ namespace DietitianCalendarApp
                 options.Password.RequiredLength = 6;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
             })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
