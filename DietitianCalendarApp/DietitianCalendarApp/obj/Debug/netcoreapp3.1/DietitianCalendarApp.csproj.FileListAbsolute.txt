@@ -388,3 +388,5 @@ C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\Diet
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.Views.pdb
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.genruntimeconfig.cache
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Denied.cshtml.g.cs
