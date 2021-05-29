@@ -25,7 +25,7 @@ namespace DietitianCalendarApp.Controllers
                 .Include(x => x.User).Select(x => new AppointmentViewModel()
                 {
                     Dietitian = x.User.Name + " " + x.User.Surname,
-                    Patient = x.PatientName + " " + x.PatientSurname,
+                    Patient = x.PatientName + " " + x.PatientSurnameName,
                     StartDate = x.StartDate,
                     EndDate = x.EndDate,
                     Description = x.Description,
@@ -41,7 +41,7 @@ namespace DietitianCalendarApp.Controllers
                 .Include(x => x.User).Select(x => new AppointmentViewModel()
                 {
                     Dietitian = x.User.Name + " " + x.User.Surname,
-                    Patient = x.PatientName + " " + x.PatientSurname,
+                    Patient = x.PatientName + " " + x.PatientSurnameName,
                     StartDate = x.StartDate,
                     EndDate = x.EndDate,
                     Description = x.Description,
@@ -64,7 +64,7 @@ namespace DietitianCalendarApp.Controllers
                     StartDate = model.StartDate,
                     EndDate = model.EndDate,
                     PatientName = model.PatientName,
-                    PatientSurname = model.PatientSurname,
+                    PatientSurnameName = model.PatientSurname,
                     Description = model.Description,
                     UserId = model.UserId
                 };
@@ -81,7 +81,7 @@ namespace DietitianCalendarApp.Controllers
                 }
                 entity.UpdatedDate = DateTime.Now;
                 entity.PatientName = model.PatientName;
-                entity.PatientSurname = model.PatientSurname;
+                entity.PatientSurnameName = model.PatientSurname;
                 entity.Description = model.Description;
                 entity.StartDate = model.StartDate;
                 entity.EndDate = model.EndDate;
