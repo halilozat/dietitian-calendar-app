@@ -3,6 +3,7 @@ using DietitianCalendarApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,16 @@ namespace DietitianCalendarApp.Controllers
 
             if (_userManager.IsInRoleAsync(user, "Secretary").Result)
             {
+                var dietitians = _userManager.Users.Where(x => x.IsDietitian);
                 SecretaryViewModel model = new SecretaryViewModel()
                 {
                     User = user,
-                    Dietitians = _userManager.Users.Where(x => x.IsDietitian == true)
+                    Dietitians = dietitians,
+                    DietitiansSelectList = dietitians.Select(n => new SelectListItem
+                    {
+                        Value = n.Id,
+                        Text = $"Dr. {n.Name} {n.Surname}"
+                    }).ToList()
                 };
                 return View("Secretary", model);
             }

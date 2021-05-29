@@ -1,4 +1,5 @@
 ﻿using DietitianCalendarApp.Data.Entity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace DietitianCalendarApp.Models
     {
         public AppUser User { get; set; }
         public IEnumerable<AppUser> Dietitians { get; set; }
+        public List<SelectListItem> DietitiansSelectList { get; internal set; }
     }
 }
