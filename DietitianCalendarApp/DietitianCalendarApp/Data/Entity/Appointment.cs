@@ -15,7 +15,7 @@ namespace DietitianCalendarApp.Data.Entity
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string PatientName { get; set; }
-        public string PatientSurnameName { get; set; }
+        public string PatientSurname { get; set; }
         public string Description { get; set; }
     }
 }
