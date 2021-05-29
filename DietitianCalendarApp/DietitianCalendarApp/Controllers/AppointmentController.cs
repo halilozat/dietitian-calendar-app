@@ -19,33 +19,39 @@ namespace DietitianCalendarApp.Controllers
             _context = context;
         }
 
-        public JsonResult GetAppoinments()
+        public JsonResult GetAppointments()
         {
             var model = _context.Appointments
                 .Include(x => x.User).Select(x => new AppointmentViewModel()
                 {
+                    Id = x.Id,
                     Dietitian = x.User.Name + " " + x.User.Surname,
-                    Patient = x.PatientName + " " + x.PatientSurnameName,
+                    PatientName = x.PatientName,
+                    PatientSurname = x.PatientSurnameName,
                     StartDate = x.StartDate,
                     EndDate = x.EndDate,
                     Description = x.Description,
-                    UserId = x.User.Id
+                    UserId = x.User.Id,
+                    Color = x.User.Color
                 });
 
             return Json(model);
         }
 
-        public JsonResult GetAppoinments(string userId = "")
+        public JsonResult GetAppointmentsByDietitian(string userId = "")
         {
             var model = _context.Appointments.Where(x => x.UserId == userId)
                 .Include(x => x.User).Select(x => new AppointmentViewModel()
                 {
+                    Id = x.Id,
                     Dietitian = x.User.Name + " " + x.User.Surname,
-                    Patient = x.PatientName + " " + x.PatientSurnameName,
+                    PatientName = x.PatientName,
+                    PatientSurname = x.PatientSurnameName,
                     StartDate = x.StartDate,
                     EndDate = x.EndDate,
                     Description = x.Description,
-                    UserId = x.User.Id
+                    UserId = x.User.Id,
+                    Color = x.User.Color
                 });
 
             return Json(model);
@@ -53,7 +59,7 @@ namespace DietitianCalendarApp.Controllers
 
 
         [HttpPost]
-        public JsonResult AddOrUpdateAppoinment(AddOrUpdateAppointmentModel model)
+        public JsonResult AddOrUpdateAppointment(AddOrUpdateAppointmentModel model)
         {
             //Validasyon
             if (model.Id == 0)
