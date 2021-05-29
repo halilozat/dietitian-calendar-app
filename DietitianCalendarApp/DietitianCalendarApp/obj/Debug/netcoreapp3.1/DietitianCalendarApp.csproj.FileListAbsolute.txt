@@ -56,7 +56,6 @@ C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\Diet
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.csprojAssemblyReference.cache
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.AssemblyInfoInputs.cache
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.AssemblyInfo.cs
 C:\Users\halilozat\Desktop\birislem\dietitian-calendar-app-dotNetCoreMvc3.1\DietitianCalendarApp\DietitianCalendarApp\obj\Debug\netcoreapp3.1\DietitianCalendarApp.RazorAssemblyInfo.cache
