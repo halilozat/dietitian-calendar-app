@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace DietitianCalendarApp.Controllers
 {
+    [Authorize(Roles = "Secretary, Dietitian")]
     public class ProfileController : Controller
     {
         private UserManager<AppUser> _userManager;
@@ -46,8 +47,18 @@ namespace DietitianCalendarApp.Controllers
             }
             else
             {
-
-                return View("Dietitian");
+                var dietitians = _userManager.Users.Where(x => x.IsDietitian);
+                SecretaryViewModel model = new SecretaryViewModel()
+                {
+                    User = user,
+                    Dietitians = dietitians,
+                    DietitiansSelectList = dietitians.Select(n => new SelectListItem
+                    {
+                        Value = n.Id,
+                        Text = $"Dr. {n.Name} {n.Surname}"
+                    }).ToList()
+                };
+                return View("Dietitian",model);
             }
         }
 
