@@ -11,6 +11,9 @@ namespace DietitianCalendarApp.Models
     {
         public AppUser User { get; set; }
         public IEnumerable<AppUser> Dietitians { get; set; }
+        public IEnumerable<Diet> Diets { get; set; }
         public List<SelectListItem> DietitiansSelectList { get; internal set; }
+        public List<SelectListItem> DietSelectList { get; internal set; }
+
     }
 }

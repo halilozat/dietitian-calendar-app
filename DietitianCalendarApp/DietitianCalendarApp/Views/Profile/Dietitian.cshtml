@@ -113,10 +113,10 @@
             </li>
 
             <li class="list-group-item" style="background:grey" ;>
-                <a class="fc-event" style="background:grey; border:none"><h6><strong style="color:white">Diyetler</strong></h6></a>
+                <a class="fc-event2" style="background:grey; border:none"><h6><strong style="color:white">Diyetler</strong></h6></a>
             </li>
             <li class="list-group-item">
-                <a class="fc-event" id="isValid" style="background:white; border:none">Akdeniz</a>
+                <a class="fc-event2" id="isValid" style="background:white; border:none">Akdeniz</a>
             </li>
             <li class="list-group-item">
                 <a class="fc-event" id="isValid" style="background:white; border:none">Gluten Free</a>
@@ -179,7 +179,17 @@
                 eventData: function (eventEl) {
                     return {
                         title: eventEl.innerText,
-                        duration: '01:30'
+                        color: 'yellow'
+                    };
+                }
+
+            });
+            new Draggable(draggableEl, {
+                itemSelector: '.fc-event2',
+                eventData: function (eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        color: 'green'
                     };
                 }
 

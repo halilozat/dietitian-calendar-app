@@ -15,5 +15,6 @@ namespace DietitianCalendarApp.Data.Entity
         public string TC { get; set; }
         public string Color { get; set; }
         public List<Appointment> Appointments { get; set; }
+        
     }
 }

@@ -16,5 +16,6 @@ namespace DietitianCalendarApp.Models
         public string Description { get; internal set; }
         public string UserId { get; internal set; }
         public string Color { get; internal set; }
+        public DietViewModel dietViewModel { get; set; }
     }
 }
