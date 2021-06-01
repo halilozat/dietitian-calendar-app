@@ -93,6 +93,50 @@
                 <a href="/Account/Logout" class="card-link">Çıkış Yap</a>
             </div>
         </div>
+        <br />
+        <br />
+        <ul class="list-group" id="otherEvents">
+            <li class="list-group-item" style="background:grey" ;>
+                <a class="fc-event" style="background:grey; border:none"><h6><strong style="color:white">Hastalıklar</strong></h6></a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Obez</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Çölyak</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Şeker Hastalığı</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none"></a>
+            </li>
+
+            <li class="list-group-item" style="background:grey" ;>
+                <a class="fc-event" style="background:grey; border:none"><h6><strong style="color:white">Diyetler</strong></h6></a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Akdeniz</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Gluten Free</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Deniz Ürünleri</a>
+            </li>
+            <li class="list-group-item">
+                <a class="fc-event" id="isValid" style="background:white; border:none">Yeşillikler Dünyası</a>
+            </li>
+        </ul>
+        <br />
+        <ul class="list-group" id="otherEvents">
+            
+        </ul>
+        @*<div id="otherEvents">
+            <p><strong>Sürüklenebilir Etkinlikler</strong></p>
+            <div class="fc-event" id="isValid">1. Etkinlik</div><br />
+            <div class="fc-event">2. Etkinlik</div><br />
+        </div>*@
     </div>
     <div class="col-md-9">
         <div class="card">
@@ -127,6 +171,21 @@
             var calendarEl = document.getElementById('calendar');
             var selectedEvent = null;
             var events = [];
+            var draggableEl = document.getElementById('otherEvents');
+
+            var Draggable = FullCalendarInteraction.Draggable;
+            new Draggable(draggableEl, {
+                itemSelector: '.fc-event',
+                eventData: function (eventEl) {
+                    return {
+                        title: eventEl.innerText,
+                        duration: '01:30'
+                    };
+                }
+
+            });
+
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 plugins: ['interaction', 'dayGrid', 'timeGrid', 'list', 'bootstrap', 'momentTimezone'],
                 timeZone: 'Europe/Istanbul',
