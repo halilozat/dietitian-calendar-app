@@ -204,17 +204,19 @@
                     dayGridMonth: 'calendar',
                     prev: 'fa-chevron-circle-left',
                     next: 'fa-chevron-circle-right',
-                    listWeek: 'fa-list'
+                    listWeek: 'fa-list',
+                    listDay: 'fa-list',
+
                 },
                 locale: 'tr',
                 header: {
                     left: 'prev, next, today',
                     center: 'title',
-                    right: 'dayGridMonth, timeGridWeek , timeGridForFourDay, listWeek'
+                    right: 'dayGridMonth, timeGridWeek, timeGridForFourDay, listWeek'
                 },
                 footer: {
-                    left: 'prevYear',
-                    right: 'nextYear'
+                    left: 'prevYear, addIll, addDiet',
+                    right: 'print, timeGridForOneDay, listDay, nextYear'
                 },
                 minTime: '08:00:00',
                 maxTime: '21:00:00',
@@ -244,6 +246,20 @@
                         type: 'timeGrid',
                         duration: { days: 4 },
                         buttonText: '4 Gün'
+                    },
+                    timeGridForOneDay: {
+                        type: 'timeGrid',
+                        duration: { days: 1 },
+                        buttonText: '1 Gün'
+                    }
+                },
+                customButtons: {
+                    
+                    print: {
+                        text: 'Yazdır',
+                        click: function () {
+                            window.print();
+                        }
                     }
                 },
                 eventTimeFormat: {

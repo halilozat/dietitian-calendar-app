@@ -1,5 +1,6 @@
-using DietitianCalendarApp.Data;
+﻿using DietitianCalendarApp.Data;
 using DietitianCalendarApp.Data.Entity;
+using DietitianCalendarApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,11 @@ namespace DietitianCalendarApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //İmageProcess servisini ekliyoruz.
+            services.AddScoped<IAdvanceImageProcess, AdvanceImageProcess>();
+            //IImageProcess görürsen, AdvanceImageProcessAdapter'dan nesne al!
+            services.AddScoped<IImageProcess, AdvanceImageProcessAdapter>(); 
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
