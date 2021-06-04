@@ -1,5 +1,5 @@
 # dietitian-calendar-app
-My my dietitian appointment application for freelancer
+My dietitian appointment application for freelancer
 
 Video of the project: https://youtu.be/vqVM-NISF4o
 
